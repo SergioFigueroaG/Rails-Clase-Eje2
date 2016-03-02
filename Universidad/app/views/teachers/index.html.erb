@@ -1,0 +1,49 @@
+<h1>Teacher</h1>
+
+<div class="col-md-4">
+	<%= link_to "Nuevo profesor", new_teacher_path, remote: true, class: "btn btn-primary" %>
+</div>
+
+<% unless @teachers.empty? %>
+		<div class="panel panel-default">		
+		<div class="col-md-12">	
+				<span><b>Esta es la lista de profesores.</b></span>
+				<div class="panel-heading col-md-12" style="color: #fff; background: #337ab7">
+					<span class=" panel-title col-md-2">Nombre</span>
+					<span class="panel-title col-md-2">E-Mail</span>
+					<span class="panel-title col-md-2">Cedula</span>
+					<span class="panel-title col-md-2 ">Materias</span>
+					<span class="panel-title col-md-1 ">Tareas</span>
+					<span class="panel-title col-md-1 ">Notas</span>
+					<span class="panel-title col-md-1 ">Borrar</span>
+					<span class="panel-title col-md-1 ">Modificar</span>
+				</div>
+			</div>
+		<div class="panel-body ">
+			<ul  class="list-group col-md-12">
+				<% @teachers.each do |teacher| %>	
+				<li class="list-group-item col-md-12">
+
+					<span class="col-md-4"><%= teacher.nombre%></span>
+					<span class="col-md-4"><%= teacher.apellido%> </span>
+					<span class="col-md-4"><%= teacher.cedula%></span>
+					<span class="col-md-3"><%= teacher.mail%> </span>			
+
+					<div class="col-md-1 text-center" > 
+						<%= link_to "", edit_teacher_path(teacher), remote: true, class: "btn btn-default glyphicon glyphicon-edit" %>
+					</div>
+
+					
+
+					
+				</li>
+				<% end %>	
+			</ul>
+		</div>
+
+	
+	<% end %>
+
+
+
+<div id="teacher-modal" class="modal fade"></div>
