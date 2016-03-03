@@ -14,8 +14,15 @@ class TeachersController < ApplicationController
 		redirect_to teachers_path
 	end
 
+ 	def destroy
+	    @teacher= Teacher.find(params[:id])
+	    @teacher.destroy
+	    redirect_to teachers_path
+  	end
+
 	def teacher_params
 		params.require(:teacher).permit(:id,:nombre,:apellido,:mail, :cedula)
 	end
+
 
 end
